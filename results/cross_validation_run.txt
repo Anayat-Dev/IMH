@@ -1,0 +1,40 @@
+/opt/pyvenv/lib/python3.13/site-packages/sklearn/model_selection/_split.py:813: UserWarning: The least populated class in y has only 4 members, which is less than n_splits=5.
+  warnings.warn(
+/opt/pyvenv/lib/python3.13/site-packages/sklearn/model_selection/_split.py:813: UserWarning: The least populated class in y has only 4 members, which is less than n_splits=5.
+  warnings.warn(
+5-FOLD STRATIFIED CROSS-VALIDATION
+Dataset size: 40
+Department counts:
+ department
+Electricity    9
+Water          8
+Sanitation     7
+Traffic        6
+Health         6
+Other          4
+
+=============================================
+Model A - Word TF-IDF
+accuracy: 0.4500 +/- 0.1500
+Fold scores: [0.625, 0.375, 0.25, 0.375, 0.625]
+macro_f1: 0.3533 +/- 0.1444
+Fold scores: [0.522, 0.194, 0.222, 0.3, 0.528]
+weighted_f1: 0.3950 +/- 0.1908
+Fold scores: [0.658, 0.292, 0.167, 0.275, 0.583]
+
+=============================================
+Model B - Word + Character TF-IDF
+accuracy: 0.5750 +/- 0.1500
+Fold scores: [0.75, 0.5, 0.375, 0.75, 0.5]
+macro_f1: 0.4864 +/- 0.1915
+Fold scores: [0.693, 0.333, 0.3, 0.744, 0.361]
+weighted_f1: 0.5100 +/- 0.1687
+Fold scores: [0.742, 0.417, 0.275, 0.658, 0.458]
+
+FINAL COMPARISON
+                             Model  accuracy  accuracy_std  macro_f1  macro_f1_std  weighted_f1  weighted_f1_std
+            Model A - Word TF-IDF     0.450          0.15    0.3533        0.1444        0.395           0.1908
+Model B - Word + Character TF-IDF     0.575          0.15    0.4864        0.1915        0.510           0.1687
+
+Saved results/cv_model_comparison.csv
+Note: only 40 examples; treat these estimates as preliminary.

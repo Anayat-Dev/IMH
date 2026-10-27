@@ -1,0 +1,24 @@
+IMH COMPLAINT ROUTING — NLP PROJECT
+==================================
+
+This folder keeps the original NLP PROJECT and its 40-row dataset. IMH A2 was used only as a reference for the interactive demo idea; its extended dataset is not substituted for the original dataset.
+
+1) Open Command Prompt in this folder.
+2) Install dependencies:
+   python -m pip install -r requirements.txt
+3) Install the spaCy English model (needed for NER.py, partd.py, and testnlp.py):
+   python -m spacy download en_core_web_sm
+4) Run the interactive complaint demo:
+   python demo.py
+   Type a complaint and press Enter. Type q to quit.
+5) Run the existing Part A/B text representation and model comparison:
+   python main.py
+6) Run the five-fold comparison for word TF-IDF vs word+character TF-IDF:
+   python evaluate_models.py
+7) Run NER and parsing components:
+   python NER.py
+   python partd.py
+
+The demo trains on the supplied 40 examples when it starts. This is a classroom prototype, not a deployed service. Its predicted department is a suggestion and must be reviewed by a person. The dataset is small, so predictions may be wrong, especially for code-mixed or uncommon complaints.
+
+Assignment scope reminder: the source code and supporting outputs are included; the PDF report is intentionally omitted because the user will prepare it separately. Review and explain the code and results yourself before submission, and disclose AI assistance according to the course integrity rules.

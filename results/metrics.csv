@@ -1,0 +1,35 @@
+Part,Metric,Value
+Part A,BoW matrix rows,40.0
+Part A,BoW vocabulary/features,880.0
+Part A,TF-IDF vocabulary/features,880.0
+Part A,Sparsity percent,96.88
+Part A,Cosine similarity same department pair,0.0188
+Part A,Cosine similarity Electricity vs Water,0.0
+Part B,MNB accuracy,0.3333
+Part B,MNB macro precision,0.1222
+Part B,MNB macro recall,0.2778
+Part B,MNB macro F1,0.1667
+Part B,MNB weighted precision,0.1556
+Part B,MNB weighted recall,0.3333
+Part B,MNB weighted F1,0.2083
+Part B,Linear SVM accuracy,0.5833
+Part B,Linear SVM macro precision,0.4556
+Part B,Linear SVM macro recall,0.5278
+Part B,Linear SVM macro F1,0.4508
+Part B,Linear SVM weighted precision,0.5111
+Part B,Linear SVM weighted recall,0.5833
+Part B,Linear SVM weighted F1,0.5063
+Part C,Overall NER precision,0.5789
+Part C,Overall NER recall,0.5789
+Part C,Overall NER F1,0.5789
+Part C,PER precision,0.125
+Part C,PER recall,0.4
+Part C,PER F1,0.1905
+Part C,LOC precision,0.7576
+Part C,LOC recall,0.5319
+Part C,LOC F1,0.625
+Part C,ORG precision,0.6296
+Part C,ORG recall,0.8095
+Part C,ORG F1,0.7083
+Part D,UAS IMH-004,0.9091
+Part D,LAS IMH-004,0.9091

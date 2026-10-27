@@ -1,0 +1,88 @@
+CS412 Assignment 2 — Intelligent Complaint Routing
+Results summary
+Dataset: imh_complaints.csv
+Dataset size: 40 rows, 4 original columns; cleaned_text added during preprocessing.
+Department counts: Electricity 9, Water 8, Sanitation 7, Traffic 6, Health 6, Other 4.
+
+PART A — TEXT REPRESENTATION
+Bag of Words matrix: 40 x 880
+TF-IDF matrix: 40 x 880
+Vocabulary size: 880
+Sparsity: 96.88%
+Cosine similarity (two Electricity tickets): 0.0188
+Cosine similarity (Electricity vs Water ticket): 0.0000
+
+Top TF-IDF terms — IMH-001 (Electricity):
+se iesco 0.1845
+does 0.1845
+pick the 0.1845
+call 0.1845
+pick 0.1845
+bijli nahi 0.1845
+nahi aa 0.1845
+bijli 0.1845
+rahi sector 0.1845
+rahi 0.1845
+
+Top TF-IDF terms — IMH-002 (Water):
+our block 0.2112
+never 0.2112
+monday cda 0.2112
+no water 0.2112
+to our 0.2112
+water in 0.2112
+since monday 0.2112
+monday 0.2112
+tanker never 0.2112
+never comes 0.2112
+
+PART B — CLASSIFICATION
+Evaluation: stratified 70/30 split, random_state=42; TF-IDF fitted on training data only; test set n=12.
+
+Multinomial Naive Bayes:
+Accuracy: 0.3333
+Macro precision: 0.1222
+Macro recall: 0.2778
+Macro F1: 0.1667
+Weighted precision: 0.1556
+Weighted recall: 0.3333
+Weighted F1: 0.2083
+
+Linear SVM:
+Accuracy: 0.5833
+Macro precision: 0.4556
+Macro recall: 0.5278
+Macro F1: 0.4508
+Weighted precision: 0.5111
+Weighted recall: 0.5833
+Weighted F1: 0.5063
+
+Interpretation: Linear SVM performed better than Multinomial Naive Bayes on this split. The test set is small (12 tickets), so results should not be generalized confidently.
+
+PART C — NAMED ENTITY RECOGNITION
+Overall evaluation (all evaluated labels):
+TP=44, FP=32, FN=32
+Precision=0.5789
+Recall=0.5789
+F1=0.5789
+
+Per-type evaluation for PER, LOC, ORG:
+PER: TP=2, FP=14, FN=3; Precision=0.1250; Recall=0.4000; F1=0.1905
+LOC: TP=25, FP=8, FN=22; Precision=0.7576; Recall=0.5319; F1=0.6250
+ORG: TP=17, FP=10, FN=4; Precision=0.6296; Recall=0.8095; F1=0.7083
+
+Scope note: overall evaluation includes labels beyond PER/LOC/ORG (such as DATE), while the per-type table reports only PER, LOC, and ORG. This explains why the totals differ.
+
+PART D — DEPENDENCY PARSING
+Tickets analyzed: IMH-004, IMH-011, IMH-018, IMH-027, IMH-033.
+UAS for IMH-004 against the manually defined gold annotation: 0.9091 (10/11 tokens).
+LAS for IMH-004 against the manually defined gold annotation: 0.9091 (10/11 tokens).
+Important: this is an illustrative evaluation against one manually annotated sentence, not a general estimate of parser accuracy.
+Dependency graph files expected in figures/:
+IMH-004_dependency.png
+IMH-027_dependency.png
+
+PART E — ERROR ANALYSIS NOTES
+Observed issues include code-mixing/Roman Urdu vocabulary, false-positive and missed NER spans, and possible dependency/coordination errors in IMH-033:
+“IESCO staff replaced the meter but billing is still wrong.”
+Verify the sentence against a manually defined gold dependency annotation before reporting a specific parse as a confirmed error.
